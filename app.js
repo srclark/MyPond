@@ -28,7 +28,7 @@ app.get('/', function (req, res){
 app.get('/mypond/animals', function(req, res){
   Animals.getAnimals(function(err, animals){
     if (err) {
-      throw (err);
+      return next(err);
     }
     //res.json(animals);
     res.json(animals);
@@ -40,13 +40,11 @@ app.get('/mypond/animals/:name', function(req, res){
   Animals.getAnimalByName(req.params.name, function(err, animal){
     //console.log("Get " + req.params.name);
     if (err) {
-      throw (err);
+      return next(err);
     }
 
     if (empty(animal)) {
-      res.status(404).json({
-        message: 'Animal with name ' + req.params.name + ' was not found.'
-      });
+      res.status(404).send('Animal with name ' + req.params.name + ' was not found.');
     } else {
       res.json(animal);
     }
@@ -57,12 +55,16 @@ app.get('/mypond/animals/:name', function(req, res){
 // Add an animal
 app.post('/mypond/animals', function(req, res){
   var animal = req.body;
-  Animals.addAnimal(animal, function(err, animal){
+  Animals.addAnimal(animals, function(err, animal){
     if (err) {
-      throw (err);
+      return next(err);
     }
-    //res.json(animals);
-    res.json(animal);
+
+    if (empty(animal)) {
+      res.status(200).send("No animals found in database");
+    } else {
+     res.json(animals);
+   }
   });
 });
 
@@ -72,9 +74,13 @@ app.put('/mypond/animals/:_id', function(req, res){
   var animal = req.body;
   Animals.updateAnimal(id, animal, {}, function(err, animal){
     if (err) {
-      throw (err);
+      return next(err);
     }
-    res.json(animal);
+    if (empty(animal)) {
+      res.status(404).send('Update Failed: Animal with id ' + req.params.id + ' was not found.');
+    } else {
+      res.json(animal);
+    }
   });
 });
 
@@ -83,21 +89,29 @@ app.delete('/mypond/animals/:_id', function(req, res){
   var id = req.params._id;
   Animals.deleteAnimal(id, function(err, animal){
     if (err) {
-      throw (err);
+      return next(err);
     }
-    res.json(animal);
+    if (empty(animal)) {
+      res.status(404).send('Delete failed: Animal with id ' + req.params.id + ' was not found.');
+    } else {
+      res.json(animal);
+    }
   });
 });
 
 // Wildlife
 
-app.get('mypond/wildlife', function(req, res){
+app.get('/mypond/wildlife', function(req, res){
   Wildlife.getWildlife(function(err, wildlife) {
     if (err) {
-      throw (err);
+      return next(err);
     }
-    // show wildlife log
-    res.json(wildlife);
+    if (empty(wildlife)) {
+      res.status(200).send("No wildlife found in database");
+    } else {
+      // show wildlife log
+      res.json(wildlife);
+    }
   });
 
 });

@@ -21,4 +21,4 @@ var Wildlife = module.exports = mongoose.model('Wildlife', wildlifeSchema);
 // Get Wildlife log
 module.exports.getWildlife = function(callback, limit){
   Wildlife.find(callback).limit(limit);
-}
+};

@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "*",
     "body-parser": "*",
+    "express": "*",
+    "is-empty": "^1.2.0",
     "mongoose": "*"
   },
   "author": "Sue Clark",

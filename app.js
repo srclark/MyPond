@@ -3,6 +3,7 @@ var app = express();
 
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var empty = require('is-empty');
 
 app.use(bodyParser.json());
 
@@ -37,11 +38,19 @@ app.get('/mypond/animals', function(req, res){
 // Find animal by name
 app.get('/mypond/animals/:name', function(req, res){
   Animals.getAnimalByName(req.params.name, function(err, animal){
+    //console.log("Get " + req.params.name);
     if (err) {
       throw (err);
     }
-    //res.json(animals);
-    res.json(animal);
+
+    if (empty(animal)) {
+      res.status(404).json({
+        message: 'Animal with name ' + req.params.name + ' was not found.'
+      });
+    } else {
+      res.json(animal);
+    }
+
   });
 });
 

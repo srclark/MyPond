@@ -14,6 +14,10 @@ var animalsSchema = mongoose.Schema({
   picture_url: {
     type: String,
     required: false
+  },
+  animal_desc: {
+    type: String,
+    required: false
   }
 });
 
@@ -37,10 +41,12 @@ module.exports.addAnimal = function(animal, callback){
 // Update Animal
 module.exports.updateAnimal = function(id, animal, options, callback){
   var query = {_id: id};
+  console.log(id);
   var update = { $set: {
     name: animal.name,
     animal_type: animal.animal_type,
-    picture_url: animal.picture_url
+    picture_url: animal.picture_url,
+    animal_desc: animal.animal_desc
   }};
   Animals.findOneAndUpdate(query, update, options, callback);
 

@@ -1,16 +1,19 @@
 {
   "name": "MyPond",
   "version": "1.0.0",
+  "private": true,
   "description": "Wildlife from my backyard pond",
-  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "body-parser": "*",
     "express": "*",
     "is-empty": "^1.2.0",
-    "mongoose": "*"
+    "mongoose": "*",
+    "debug": "*",
+    "cookie-parser": "*",
+    "serve-favicon": "*"
   },
   "author": "Sue Clark",
   "license": "ISC"

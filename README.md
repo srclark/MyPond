@@ -32,4 +32,4 @@ var animalsSchema = mongoose.Schema({
     type: String,
     required: false
   }
-});```
+});

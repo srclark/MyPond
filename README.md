@@ -1,9 +1,9 @@
 # MyPond
 An example of a node.js/express/mongodb/mongoose web application.  The purpose is document the animals seen in my pond.  This is still a under construction.
 
-## React Front-End
+## Handlebars Templating
 
-The React front-end is in /client.  I used create-react-app to get started. I had created the backend first, so I had to do some modifications to the backend to make this work.
+I have some very rough handlebars templating in place.  
 
 ## Node.js and Express
 

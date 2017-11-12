@@ -5,7 +5,7 @@ var empty = require('is-empty');
 
 // Wildlife
 
-router.get('/', function(req, res){
+router.get('/', function(req, res, next){
   console.log("Get Wildlife");
   Wildlife.getWildlife(function(err, wildlife){
     if (err) {

@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.addAnimal {
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.formElement {
+  margin-bottom: 10px;
+}
+
+input,
+textarea,
+select {
+  font-size: .85em;
+}
+
+button {
+    background-color: #007cba; /* Green */
+    border: none;
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+button:hover {
+  background-color: #008cba;
+}
+
+.error-msg {
+  color: red;
+}

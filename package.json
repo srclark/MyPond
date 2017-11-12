@@ -8,12 +8,18 @@
   },
   "dependencies": {
     "body-parser": "*",
+    "cookie-parser": "*",
+    "debug": "*",
     "express": "*",
+    "express-flash": "git://github.com/RGBboy/express-flash.git",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "express-validator": "^4.3.0",
+    "handlebars": "^4.0.11",
     "is-empty": "^1.2.0",
     "mongoose": "*",
-    "debug": "*",
-    "cookie-parser": "*",
-    "serve-favicon": "*"
+    "serve-favicon": "*",
+    "valid-url": "^1.0.9"
   },
   "author": "Sue Clark",
   "license": "ISC"

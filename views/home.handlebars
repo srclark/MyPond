@@ -1,0 +1,30 @@
+<h1>Add an Animal to Database</h1>
+{{#if expressFlash}}
+    <p class="error-msg"> {{ expressFlash }}</p>
+{{/if}}
+
+<form class="addAnimal" method="post" action="/animals" target="/animals">
+  <div class="formElement">
+    <label>Common Name:</label>
+     <input type="text" name="name" placeholder="Enter Animal's Name" required><br />
+  </div>
+  <div class="formElement">
+    <label>Animal Type:</label>
+    <select name="animal_type" required>
+      <option value="amphibian">Amphibian</option>
+      <option value="bird">Bird</option>
+      <option value="invertebrate">Invertebrate</option>
+      <option value="mammal">Mammal</option>
+      <option value="reptile">Reptile</option>
+    </select><br />
+  </div>
+  <div class="formElement">
+    <label>Picture Link:</label>
+    <input type="text" name="picture_url" placeholder="Enter a picture link" ><br />
+  </div>
+  <div class="formElement">
+    <label>Animal Description:</label><br />
+    <textarea name="animal_desc" style="width:400px; height:200px" maxlength="2048" placeholder="Enter animal description"></textarea><br />
+  </div>
+  <button type="submit">Add Animal</button>
+</form>

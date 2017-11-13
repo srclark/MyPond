@@ -15,7 +15,7 @@ You can use the instructions https://treehouse.github.io/installation-guides/mac
 
 In the mongo shell, you just enter ```use mypond``` to create the database.  I added 2 collections, ```db.createCollection("animals")``` and ```db.createCollection("wildlife")```.  If you want to verify that everything is correct, check the databases with ```show dbs``` and ```show collections```.  You should see a database called mypond and you should see 2 collections, animals and wildlife.
 
-The models for the db are in the models/ directory.  I have 2 collections animals for all the possible animals and wildlife for a log of wildlife sightings.  The wildlife schema is not well defined yet.  The animal schema is much farther along.
+The models for the db are in the models/ directory.  I have 2 collections animals for all the possible animals and wildlife for a log of wildlife sightings.  The wildlife schema is not well defined yet.  The animal schema is further along.
 
 ```// Animals Schema
 var animalsSchema = mongoose.Schema({
